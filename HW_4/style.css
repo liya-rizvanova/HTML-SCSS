@@ -29,20 +29,34 @@ body {
   margin-bottom: 84px;
 }
 
-.navigation {}
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Разделяет логотип и пункты меню */
+}
 
-.navigation a {
+.logo {
+  flex-shrink: 0; /* Логотип не будет сжиматься */
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 533px; /* Фиксированная ширина для пунктов меню */
+}
+
+.menu a {
   font-family: 'Gilroy-Medium';
   font-size: 14px;
-  color: #000000; /* Добавьте эту строку */
-  text-decoration: none; /* Удаляет подчеркивание ссылок, если нужно */
+  color: #000000;
+  text-decoration: none;
 }
 
 .homeColor {
   font-family: 'Gilroy-SemiBold';
   color: #F25822 !important;
 }
-
 
 /* Стили для выпадающего списка */
 .dropdown {
@@ -101,15 +115,21 @@ body {
   margin-bottom: 200px;
 }
 
-.mainContent {}
+.mainContent {
+  display: flex;
+  justify-content: space-between;
+}
 
-.mainContent__leftSide {}
+.mainContent__leftSide {
+  max-width: 589px;
+}
 
 .mainContent__leftSide h1 {
   font-family: 'Gilroy-Bold';
   font-size: 60px;
   line-height: 70.31px;
   margin-bottom: 17px;
+  max-width: 522px;
 }
 
 .mainContent__leftSide p {
@@ -118,9 +138,14 @@ body {
   font-size: 20px;
   line-height: 23.44px;
   margin-bottom: 37px;
+  max-width: 466px;
 }
 
-.mainContent__leftSide-btnList {}
+.mainContent__leftSide-btnList {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
 
 /* указывая внутренние отступы кнопки она становится гибкой (не меняется вне зависимости от того, какой длины текст будет написан)*/
 
@@ -136,16 +161,21 @@ body {
   margin-bottom: 200px;
 }
 
-.start{
+.btnStart{
   background: #F25822;
   box-shadow: 4px 4px 8px 0px #F2582233;
   color: #FFFFFF;
 }
 
-.watch{
+.btnWatch{
   color: #AAAAAA;
 }
 
-.footer {}
+.footer {
+  margin-bottom: 95px;
+}
 
-.logos {}
+.logos {
+  display: flex;
+  justify-content: space-between;
+}
