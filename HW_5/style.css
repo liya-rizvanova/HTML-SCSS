@@ -1,16 +1,21 @@
 @font-face {
   font-family: 'Gilroy-Bold';
-  src: url('../HW_4/fonts/Gilroy-Bold.ttf');
+  src: url('../HW_5/fonts/Gilroy-Bold.ttf');
 }
 
 @font-face {
   font-family: 'Gilroy-Medium';
-  src: url('../HW_4/fonts/Gilroy-Medium.ttf');
+  src: url('../HW_5/fonts/Gilroy-Medium.ttf');
 }
 
 @font-face {
   font-family: 'Gilroy-SemiBold';
-  src: url('../HW_4/fonts/Gilroy-SemiBold.ttf');
+  src: url('../HW_5/fonts/Gilroy-SemiBold.ttf');
+}
+
+@font-face{
+  font-family: 'Gilroy-Regular';
+  src: url('../HW_5/fonts/Gilroy-Regular.ttf');
 }
 
 body {
@@ -111,13 +116,10 @@ body {
   display: flex;
 }
 
-.main {
-  margin-bottom: 200px;
-}
-
 .mainContent {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 200px;
 }
 
 .mainContent__leftSide {
@@ -155,7 +157,6 @@ body {
   border-radius: 50px;
   border: none;
   cursor: pointer;
-  font-family: Gilroy-Bold;
   font-size: 15px;
   line-height: 17.58px;
 }
@@ -174,11 +175,124 @@ body {
   color: #AAAAAA;
 }
 
-.footer {
-  margin-bottom: 95px;
-}
-
 .logos {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 100px;
+}
+
+.cardList{
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardList_readCard{
+  padding: 40px 30px 25px;
+  margin-bottom: 100px;
+}
+
+.cardList_readCard_icons{
+  margin-bottom: 25px;
+}
+
+.cardList_readCard_boxShadow{
+  box-shadow: 15px 25px 56px 6px #0000000F;
+}
+
+.cardList_readCard h2{
+  font-family: 'Gilroy-Bold';
+  font-size: 24px;
+  line-height: 28.13px;
+  margin-bottom: 17px;
+}
+
+.cardList_readCard p{
+  font-family: 'Gilroy-Regular';
+  font-size: 15px;
+  line-height: 22.5px;
+  color: #666666;
+  margin-bottom: 25px;
+  max-width: 310px;
+}
+
+.btnReadMore{
+  display: flex;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: 'Gilroy-Bold';
+  color: #000000;
+  font-size: 11px;
+  line-height: 16.5px;
+}
+
+.chooseUs{
+  background: #FAFAFA;
+  margin-bottom: 100px;
+}
+
+.chooseUs_header {
+  padding: 92px 0 55px 0;
+  max-width: 682px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.chooseUs_header h1{
+  font-family: 'Gilroy-Bold';
+  font-size: 45px;
+  line-height: 52.73px;
+  color: #000000;
+  margin-bottom: 19px;
+}
+
+.chooseUs_header p{
+  font-family: 'Gilroy-Regular';
+  font-size: 16px;
+  line-height: 24px;
+  color: #666666;
+}
+
+.chooseUs_learnMore-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Три столбца */
+  gap: 30px; /* Расстояние между карточками */
+}
+
+.chooseUs_learnMore {
+  text-align: center; /* Центрирование содержимого карточек */
+  background: #FFFFFF;
+}
+
+.chooseUs_learnMore_boxShadow {
+  box-shadow: 15px 25px 60px -5px #0000001A; /* Тень только для второй карточки */
+}
+
+.chooseUs_learnMore h2{
+  margin-top: 25px;
+  font-family: 'Gilroy-Bold';
+  color: #000000;
+  font-size: 24px;
+  line-height: 28.13px;
+  margin-bottom: 22px;
+}
+
+.chooseUs_learnMore p{
+  font-family: 'Gilroy-Regular';
+  font-size: 15px;
+  line-height: 22.5px;
+  margin-bottom: 39px;
+  padding: 0 30px;
+}
+
+.chooseUs_learnMore_btn{
+  font-family: 'Gilroy-Bold';
+  padding: 15px 30px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  background: #F25822;
+  box-shadow: 4px 4px 8px 0px #F2582233;
+  color: #FFFFFF;
+  margin-bottom: 50px;
 }
