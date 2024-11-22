@@ -161,17 +161,17 @@ body {
   line-height: 17.58px;
 }
 
-.mainContent__leftSide-imgWorkGroup{
+.mainContent__leftSide-imgWorkGroup {
   max-width: 545px;
 }
 
-.btnStart{
+.btnStart {
   background: #F25822;
   box-shadow: 4px 4px 8px 0px #F2582233;
   color: #FFFFFF;
 }
 
-.btnWatch{
+.btnWatch {
   color: #AAAAAA;
 }
 
@@ -181,32 +181,32 @@ body {
   margin-bottom: 100px;
 }
 
-.cardList{
+.cardList {
   display: flex;
   justify-content: space-between;
 }
 
-.cardList_readCard{
+.cardList_readCard {
   padding: 40px 30px 25px;
   margin-bottom: 100px;
 }
 
-.cardList_readCard_icons{
+.cardList_readCard_icons {
   margin-bottom: 25px;
 }
 
-.cardList_readCard_boxShadow{
+.cardList_readCard_boxShadow {
   box-shadow: 15px 25px 56px 6px #0000000F;
 }
 
-.cardList_readCard h2{
+.cardList_readCard h2 {
   font-family: 'Gilroy-Bold';
   font-size: 24px;
   line-height: 28.13px;
   margin-bottom: 17px;
 }
 
-.cardList_readCard p{
+.cardList_readCard p {
   font-family: 'Gilroy-Regular';
   font-size: 15px;
   line-height: 22.5px;
@@ -226,7 +226,7 @@ body {
   line-height: 16.5px;
 }
 
-.chooseUs{
+.chooseUs {
   background: #FAFAFA;
   margin-bottom: 100px;
 }
@@ -238,7 +238,7 @@ body {
   text-align: center;
 }
 
-.chooseUs_header h1{
+.chooseUs_header h1 {
   font-family: 'Gilroy-Bold';
   font-size: 45px;
   line-height: 52.73px;
@@ -246,7 +246,7 @@ body {
   margin-bottom: 19px;
 }
 
-.chooseUs_header p{
+.chooseUs_header p {
   font-family: 'Gilroy-Regular';
   font-size: 16px;
   line-height: 24px;
@@ -268,7 +268,7 @@ body {
   box-shadow: 15px 25px 60px -5px #0000001A; /* Тень только для второй карточки */
 }
 
-.chooseUs_learnMore h2{
+.chooseUs_learnMore h2 {
   margin-top: 25px;
   font-family: 'Gilroy-Bold';
   color: #000000;
