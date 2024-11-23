@@ -1,0 +1,17 @@
+/* Обнуление стилей */
+
+*{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+body{
+  scroll-behavior: smooth;
+}
+
+img{
+  display: block;
+  max-width: 100%;
+}
