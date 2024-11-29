@@ -2,18 +2,20 @@
 
 body {
   background: #FFFFFF;
+  font-family: Lato;
 }
 
 .container {
-  font-family: Lato;
   max-width: 1140px;
   margin: 0 auto;
 }
 
+/* Для того, чтобы скрыть всплывающее меню */
 .hiddenPopUp {
   display: none;
 }
 
+/* Блок с логотипом и иконками меню */
 .header {
   background: #222222;
   padding: 18px 0;
@@ -21,8 +23,8 @@ body {
 
 .navigation {
   display: flex;
-  align-items: center; /* Выровнять элементы по вертикали */
-  justify-content: space-between; /* Разделяет содержимое по краям */
+  align-items: center;
+  justify-content: space-between;
 }
 
 .logo-wrapper {
@@ -46,6 +48,7 @@ body {
   display: inline-block;
 }
 
+/* Круг с счетчиком на иконке корзинки */
 .product_counter::after {
   content: "5"; /* Псевдоэлемент с кругом */
   position: absolute;
@@ -54,16 +57,15 @@ body {
   width: 19px; /* Ширина круга */
   height: 19px; /* Высота круга */
   background-color: #F16D7F; /* Цвет круга */
-  border-radius: 50%; /* Превращает квадрат в круг */
-  border: none; /* Добавляет границу, чтобы круг выделялся */
+  border-radius: 50%;
+  border: none;
   z-index: 1; /* Поверх иконки */
   color: white; /* Цвет текста */
-  font-family: Lato;
   font-size: 12px;
   font-weight: 400;
   display: flex; /* Flexbox для центрирования */
-  align-items: center; /* Вертикальное выравнивание */
-  justify-content: center; /* Горизонтальное выравнивание */
+  align-items: center; /* Вертикальное выравнивание цифры */
+  justify-content: center; /* Горизонтальное выравнивание цифры */
 }
 
 .btnMenu {
@@ -74,13 +76,13 @@ body {
 
 .menu {
   display: flex;
-  gap: 33px; /* Расстояние между кнопками */
+  gap: 33px; /* Расстояние между кнопками меню */
 }
 
 .containerMain {
   background: #F1E4E6;
   max-width: 100%;
-  position: relative; /* Устанавливаем относительное позиционирование */
+  position: relative; /* Устанавливаем относительное позиционирование для popup-menu */
 }
 
 /* Стили для всплывающего меню */
@@ -89,18 +91,17 @@ body {
   top: 0; /* Отступ от верхнего края контейнера */
   right: 0; /* Отступ от правого края контейнера */
   width: 232px; /* Ширина меню */
-  background-color: white; /* Белый фон для видимости */
+  background-color: white;
   border: none;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для объема */
+  box-shadow: 6px 4px 35px 0px #00000036; /* Тень для объема */
   z-index: 5; /* Поверх остальных элементов */
-  padding: 32px 74px 12px 32px; /* Внутренние отступы */
+  padding: 32px 74px 12px 32px; /* Внутренние отступы для расположения содержимого */
 }
 
 /* Контент внутри всплывающего меню */
 .popup-menu__content {
   display: flex;
   flex-direction: column;
-  font-family: Lato;
 }
 
 .menu-close {
@@ -128,7 +129,7 @@ body {
   color: #F16D7F;
   text-transform: uppercase;
   margin-bottom: 12px;
-  list-style: none; /* Убираем маркеры */
+  list-style: none; /* Убирает маркеры у списка */
 }
 
 .categories-section {
@@ -136,20 +137,21 @@ body {
 }
 
 .categories-section li {
-  padding-left: 25px;
+  padding-left: 25px; /* Отступ от левого края блока */
   font-size: 14px;
   font-weight: 400;
   line-height: 16.8px;
   color: #6F6E6E;
   gap: 11px;
   margin-bottom: 11px;
-  list-style: none; /* Убираем маркеры */
+  list-style: none;
 }
 
+/* Блок с мужиком и надписью THE BRAND OF LUXERIOUS FASHION */
 .containerMain_mainContent {
   max-width: 1600px;
   margin: 0 auto;
-  display: flex; /* Включаем flexbox */
+  display: flex;
   align-items: center;
   justify-items: center;
   gap: 64px; /* Расстояние между дочерними элементами */
@@ -157,16 +159,16 @@ body {
 
 .mainContent__leftSide {
   max-width: 800px;
-  align-self: flex-end; /* Гарантирует, что элемент выравнен по нижнему краю */
+  align-self: flex-end; /* Выравнивает элемент по нижнему краю контейнера */
 }
 
 .mainContent__rightSide_text {
   flex-direction: column;
   max-width: 405px; /* Ограничение ширины текста */
-  max-height: 93px;
+  max-height: 93px; /* Ограничение высоты текста */
   font-family: Lato;
   padding: 0 0 0 16px;
-  background-color: transparent; /* Убирает фон */
+  background-color: transparent;
   border-left: 12px solid #F16D7F; /* Левая граница */
   text-align: left;
 }
@@ -185,9 +187,10 @@ body {
 }
 
 .highlight_rightSide {
-  color: #F16D7F; /* Цвет текста */
+  color: #F16D7F; /* Цвет для слова fashion */
 }
 
+/* Карточки с предложениями */
 .cardList {
   margin-top: 65px;
   display: grid;
@@ -197,7 +200,7 @@ body {
 }
 
 .card {
-  position: relative; /* Устанавливаем позицию для использования overlay */
+  position: relative; /* Устанавливает позицию для использования overlay */
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -217,7 +220,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(33, 22, 22, 0.7); /* Цвет с затемнением */
+  background: rgba(33, 22, 22, 0.7); /* Цвет затемнения */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -244,8 +247,8 @@ body {
   grid-row: 2; /* Находится во втором ряду */
 }
 
+/* Блок между предложениями и карточками товаров */
 .items {
-  font-family: Lato;
   display: flex;
   justify-content: center;
   text-align: center;
@@ -272,7 +275,7 @@ body {
 /* Обёртка для изображения */
 .image-wrapper {
   position: relative; /* Для позиционирования псевдоэлемента */
-  overflow: hidden; /* Обрезаем всё, что выходит за пределы */
+  overflow: hidden; /* Обрезает всё, что выходит за пределы */
 }
 
 /* Изображение */
@@ -284,7 +287,7 @@ body {
 
 /* Затемнение через псевдоэлемент */
 .image-wrapper::before {
-  content: ''; /* Создаём псевдоэлемент */
+  content: ''; /* Создаёт псевдоэлемент */
   position: absolute;
   top: 0;
   left: 0;
@@ -293,7 +296,7 @@ body {
   background: rgba(58, 56, 56, 0.86);
   opacity: 0; /* Изначально невидим */
   transition: opacity 0.3s ease; /* Плавный переход */
-  z-index: 1; /* Поверх изображения, но под кнопкой */
+  z-index: 1; /* Поверх изображения карточки товара, но под кнопкой Add to Cart*/
 }
 
 .image-wrapper:hover::before {
@@ -315,7 +318,6 @@ body {
   justify-content: center;
   gap: 11px; /* Расстояние между иконкой и текстом */
   cursor: pointer;
-  font-family: Lato;
   font-size: 14px;
   font-weight: 400;
   line-height: 16.8px;
@@ -335,10 +337,11 @@ body {
   display: flex; /* Показываем кнопку при наведении */
 }
 
+/* Карточки товара */
 .rectangles {
   display: flex;
   flex-direction: column;
-  text-align: left; /* Выравнивание текста, если нужно */
+  text-align: left;
 }
 
 .rectangles img {
@@ -383,6 +386,7 @@ body {
   row-gap: 25px; /* Расстояние между строками */
 }
 
+/* Кнопка Browse All Product */
 .baseBtn {
   display: flex;
   justify-content: center;
@@ -391,7 +395,6 @@ body {
 }
 
 .btnAllProduct {
-  font-family: Lato;
   font-size: 16px;
   font-weight: 400;
   line-height: 19.2px;
@@ -408,6 +411,7 @@ body {
   padding: 15px 40px;
 }
 
+/* Блок с преимуществами */
 .containerFooter {
   background: #222224;
   max-width: 100%;
@@ -415,14 +419,13 @@ body {
 }
 
 .containerFooter__offers {
-  display: flex; /* Включаем flexbox */
+  display: flex;
   align-items: center;
   justify-items: center;
   justify-content: space-between;
   gap: 30px; /* Расстояние между дочерними элементами */
   max-width: 1600px;
   margin: 0 auto;
-  font-family: Lato;
   padding: 103px 230px;
 }
 
@@ -459,19 +462,20 @@ body {
   max-width: 320px;
 }
 
+/* Блок с изображением и формой для E-Mail */
 .containerFooter__form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: relative; /* Устанавливаем контекст для позиционирования */
+  position: relative;
   max-width: 1600px;
   margin: 0 auto;
   height: 100%;
 }
 
 .overlayFooter {
-  position: relative; /* Контекст для псевдоэлемента */
+  position: relative;
   width: 100%;
   height: 100%;
   display: flex;
@@ -485,6 +489,7 @@ body {
   object-fit: cover;
 }
 
+/*  Наложение поверх изображения блока */
 .overlayFooter::after {
   content: '';
   position: absolute;
@@ -496,16 +501,16 @@ body {
   z-index: 1; /* Находится под контентом */
 }
 
+/*  Текст с формой для E-Mail поверх изображения блока с наложением  */
 .overlayFooter-content {
   position: absolute; /* Размещаем поверх родительского блока */
   top: 45%;
   left: 30%;
-  transform: translate(-25%, -50%); /* Центрирование */
+  transform: translate(-25%, -50%); /* Центрирование методом подбора*/
   display: flex; /* Выравнивание контента */
   align-items: center;
   gap: 328px;
   z-index: 2; /* Поверх фона и наложения */
-  font-family: Lato;
 }
 
 .containerFooter__leftSide {
@@ -524,7 +529,7 @@ body {
 }
 
 .containerFooter_leftSide-italic {
-  font-style: italic;
+  font-style: italic; /* Выделение части текста в левой части блока */
 }
 
 .containerFooter__rightSide {
@@ -550,15 +555,14 @@ body {
   display: flex;
   align-items: center;
   text-align: center;
-  gap: 0; /* Убираем промежуток между input и button */
-  font-family: Lato;
+  gap: 0; /* Убирает промежуток между input и button */
 }
 
 .containerFooter__rightSide input {
   font-size: 14px;
   font-weight: 400;
   line-height: 16.8px;
-  border-radius: 50px 0 0 50px; /* Закругление только левых углов */
+  border-radius: 50px 0 0 50px; /* Закругление только левых углов формы */
   max-width: 256px;
   height: 49px;
   border: none;
@@ -567,7 +571,7 @@ body {
 
 .containerFooter__rightSide button {
   background: #F16D7F;
-  border-radius: 0 50px 50px 0; /* Закругление только правых углов */
+  border-radius: 0 50px 50px 0; /* Закругление только правых углов формы */
   color: #FFFFFF;
   cursor: pointer;
   font-size: 14px;
@@ -576,7 +580,7 @@ body {
   max-width: 100px;
   height: 49px;
   border: none;
-  padding: 10px 20px; /* Внутренние отступы */
+  padding: 10px 20px;
 }
 
 .containerFooter__bottom {
@@ -585,9 +589,10 @@ body {
   justify-content: space-between; /* Распределение элементов по краям */
   max-width: 1600px;
   margin: 0 auto;
-  padding: 24px 230px; /* Отступы внутри контейнера */
+  padding: 24px 230px;
 }
 
+/* Подвал сайта с текстом и иконками соцсетей */
 .containerFooter__bottom-text {
   display: flex;
   align-items: center; /* Убедитесь, что текст выровнен по центру */
@@ -605,34 +610,16 @@ body {
   align-items: center; /* Выравнивание иконки по вертикали */
 }
 
-/* .containerFooter__bottom {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  justify-items: center;
-  max-width: 1600px;
-  margin: 0 auto;
-  padding: 24px 230px;
-} */
-
 .containerFooter__bottom-text p {
-  font-family: Lato;
   font-size: 16px;
   font-weight: 400;
   line-height: 19.2px;
   color: #FBFBFB;
 }
 
-/* .containerFooter__bottom-icons {
-  display: flex;
-  justify-items: center;
-  gap: 7px;
-  cursor: pointer;
-} */
-
 /* Исходные цвета */
 .icon-wrapper .bg {
-  fill: white; /* Цвет фона */
+  fill: white; /* Цвет фона иконки*/
   transition: fill 0.3s ease; /* Плавный переход цвета */
 }
 
@@ -643,7 +630,7 @@ body {
 
 /* Цвета при наведении только на конкретную иконку */
 .icon-wrapper:hover .bg {
-  fill: #F16D7F; /* Фон становится розовым */
+  fill: #F16D7F; /* Фон иконки становится розовым */
 }
 
 .icon-wrapper:hover .icon-path {
@@ -771,6 +758,8 @@ body {
     padding: 24px 32px;
   }
 }
+
+
 
 @media (max-width: 767px) {
   .container {

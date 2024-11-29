@@ -1,5 +1,5 @@
 const popupMenu = document.querySelector('.popup-menu');
-const openMenuButton = document.querySelector('.btnMenu__expand'); // предполагаю, что это кнопка для открытия меню
+const openMenuButton = document.querySelector('.btnMenu__expand');
 const closeMenuButton = document.querySelector('.menu-close');
 
 openMenuButton.addEventListener('click', () => {
