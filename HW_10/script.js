@@ -1,11 +1,11 @@
-const popupMenu = document.querySelector('.popup-menu__content');
-const expandButton = document.querySelector('.btnMenu__expand');
-const closeButton = document.querySelector('.menu-close');
+const popupMenu = document.querySelector('.popup-menu');
+const openMenuButton = document.querySelector('.btnMenu__expand'); // предполагаю, что это кнопка для открытия меню
+const closeMenuButton = document.querySelector('.menu-close');
 
-function toggleMenu() {
-  popupMenu.classList.toggle('hiddenPopUP');
-}
+openMenuButton.addEventListener('click', () => {
+  popupMenu.classList.remove('hiddenPopUp'); // Показать меню
+});
 
-// Навешиваем обработчики событий
-expand.addEventListener('click', toggleMenu); // Открыть/закрыть меню
-closeButton.addEventListener('click', toggleMenu); // Закрыть меню
+closeMenuButton.addEventListener('click', () => {
+  popupMenu.classList.add('hiddenPopUp'); // Скрыть меню
+});
