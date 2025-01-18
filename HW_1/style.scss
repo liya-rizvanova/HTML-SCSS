@@ -1,0 +1,933 @@
+@use "sass:math";
+
+/* Обнуление стилей */
+
+*{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+body{
+  scroll-behavior: smooth;
+}
+
+img{
+  display: block;
+  max-width: 100%;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:wght@800&display=swap" rel="stylesheet');
+
+body {
+  background: #FFFFFF;
+  font-family: Lato;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* Для того, чтобы скрыть всплывающее меню */
+.hiddenPopUp {
+  display: none;
+}
+
+/* Блок с логотипом и иконками меню */
+.header {
+  background: #222222;
+  padding: 18px 0;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 41px; /* Расстояние между логотипом и кнопкой поиска */
+}
+
+.logo img {
+  display: block;
+  max-height: 40px; /* Ограничение высоты логотипа */
+}
+
+.search-btn {
+  display: flex;
+  align-items: center;
+}
+
+.product_counter {
+  position: relative; /* Это позволяет размещать псевдоэлементы внутри блока */
+  display: inline-block;
+}
+
+/* Круг с счетчиком на иконке корзинки */
+.product_counter::after {
+  content: "5"; /* Псевдоэлемент с кругом */
+  position: absolute;
+  top: -8px; /* Настройка вертикального положения */
+  right: -9px; /* Настройка горизонтального положения */
+  width: 19px; /* Ширина круга */
+  height: 19px; /* Высота круга */
+  background-color: #F16D7F; /* Цвет круга */
+  border-radius: 50%;
+  border: none;
+  z-index: 1; /* Поверх иконки */
+  color: white; /* Цвет текста */
+  font-size: 12px;
+  font-weight: 400;
+  display: flex; /* Flexbox для центрирования */
+  align-items: center; /* Вертикальное выравнивание цифры */
+  justify-content: center; /* Горизонтальное выравнивание цифры */
+}
+
+.btnMenu {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.menu {
+  display: flex;
+  gap: 33px; /* Расстояние между кнопками меню */
+}
+
+.containerMain {
+  background: #F1E4E6;
+  max-width: 100%;
+  position: relative; /* Устанавливаем относительное позиционирование для popup-menu */
+}
+
+/* Стили для всплывающего меню */
+.popup-menu {
+  position: absolute; /* Абсолютное позиционирование относительно .containerMain */
+  top: 0; /* Отступ от верхнего края контейнера */
+  right: 0; /* Отступ от правого края контейнера */
+  width: 232px; /* Ширина меню */
+  background-color: white;
+  border: none;
+  box-shadow: 6px 4px 35px 0px #00000036; /* Тень для объема */
+  z-index: 5; /* Поверх остальных элементов */
+  padding: 32px 74px 12px 32px; /* Внутренние отступы для расположения содержимого */
+  a {
+    color: inherit;
+  }
+}
+
+/* Контент внутри всплывающего меню */
+.popup-menu__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 15px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+
+.popup-menu h2 {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 16.8px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.menu-section h3 {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.8px;
+  color: #F16D7F;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  list-style: none; /* Убирает маркеры у списка */
+}
+
+.categories-section {
+  margin-bottom: 20px;
+}
+
+.categories-section li {
+  padding-left: 25px; /* Отступ от левого края блока */
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.8px;
+  color: #6F6E6E;
+  gap: 11px;
+  margin-bottom: 11px;
+  list-style: none;
+}
+
+/* Блок с мужиком и надписью THE BRAND OF LUXERIOUS FASHION */
+.containerMain_mainContent {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  gap: 64px; /* Расстояние между дочерними элементами */
+}
+
+.mainContent__leftSide {
+  max-width: 800px;
+  align-self: flex-end; /* Выравнивает элемент по нижнему краю контейнера */
+}
+
+.mainContent__rightSide_text {
+  position: relative;
+  top: -47px; /* Отступ текста от края блока */
+  flex-direction: column;
+  max-width: 405px; /* Ограничение ширины текста */
+  max-height: 93px; /* Ограничение высоты текста */
+  font-family: Lato;
+  padding: 0 0 0 16px;
+  background-color: transparent;
+  border-left: 12px solid #F16D7F; /* Левая граница */
+  text-align: left;
+}
+
+.mainContent__rightSide h2 {
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 57.6px;
+}
+
+.mainContent__rightSide h3 {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 38.4px;
+  white-space: nowrap;
+}
+
+.highlight_rightSide {
+  color: #F16D7F; /* Цвет для слова fashion */
+}
+
+/* Карточки с предложениями */
+.cardList {
+  margin-top: 65px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Три колонки одинаковой ширины */
+  grid-template-rows: auto auto; /* Автоматическая высота строк */
+  gap: 30px; /* Расстояние между элементами */
+}
+
+.card {
+  position: relative; /* Устанавливает позицию для использования overlay */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.card img {
+  display: block;
+  width: 100%; /* Устанавливаем ширину картинки */
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(33, 22, 22, 0.7); /* Цвет затемнения */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.overlay h2 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.2px;
+  color: #FFFFFF;
+}
+
+.overlay h3 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28.8px;
+  color: #F16D7F;
+}
+
+.cardBig {
+  grid-column: span 3; /* Занимает все три колонки */
+  grid-row: 2; /* Находится во втором ряду */
+}
+
+/* Блок между предложениями и карточками товаров */
+.items {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  margin-top: 96px;
+}
+
+.items h2 {
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 36px;
+  color: #222222;
+  margin-bottom: 6px;
+}
+
+.items h3 {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.8px;
+  color: #9F9F9F;
+  margin-bottom: 48px;
+}
+
+/* Обёртка для изображения */
+.image-wrapper {
+  position: relative; /* Для позиционирования псевдоэлемента */
+  overflow: hidden; /* Обрезает всё, что выходит за пределы */
+}
+
+/* Изображение */
+.image-wrapper img {
+  display: block;
+  width: 100%;
+  transition: opacity 0.3s ease; /* Плавное затемнение */
+}
+
+/* Затемнение через псевдоэлемент */
+.image-wrapper::before {
+  content: ''; /* Создаёт псевдоэлемент */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(58, 56, 56, 0.86);
+  opacity: 0; /* Изначально невидим */
+  transition: opacity 0.3s ease; /* Плавный переход */
+  z-index: 1; /* Поверх изображения карточки товара, но под кнопкой Add to Cart*/
+}
+
+.image-wrapper:hover::before {
+  opacity: 1; /* Затемнение при наведении */
+}
+
+/* Кнопка поверх изображения */
+.add-to-cart {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Центрирование */
+  background-color: transparent; /* Прозрачный фон */
+  color: #FFFFFF; /* Белый текст */
+  border: 1px solid #FFFFFF; /* Белая рамка */
+  padding: 10px 15px;
+  display: none; /* Прячем по умолчанию */
+  align-items: center;
+  justify-content: center;
+  gap: 11px; /* Расстояние между иконкой и текстом */
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.8px;
+  z-index: 2; /* Поверх затемнения */
+  transition: opacity 0.3s ease;
+  text-wrap: nowrap;
+}
+
+.add-to-cart img {
+  width: 26px; /* Ширина иконки */
+  height: 24px; /* Высота иконки */
+  vertical-align: middle; /* Вертикальное выравнивание */
+  background-color: transparent;
+}
+
+.image-wrapper:hover .add-to-cart {
+  display: flex; /* Показываем кнопку при наведении */
+}
+
+/* Карточки товара */
+.rectangles {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.rectangles img {
+  display: block; /* Убирает возможные отступы изображения (inline-элементов) */
+  width: 100%; /* Задаёт ширину изображения */
+  margin: 0; /* Убирает отступы вокруг изображения */
+  padding: 0; /* Убирает отступы внутри изображения */
+}
+
+.rectanglesDescription {
+  background: #F8F8F8; /* Цвет фона для описания */
+  padding: 25px 30px 25px 15px; /* Отступы внутри описания */
+}
+
+.rectanglesDescription h2 {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 15.6px;
+  color: #000000;
+  margin-bottom: 16px;
+}
+
+.rectanglesDescription p {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 16.8px;
+  color: #5D5D5D;
+  margin-bottom: 16px;
+}
+
+.rectanglesLocation h3 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.2px;
+  color: #F16D7F;
+}
+
+.rectanglesLocation {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Колонки с адаптивной шириной */
+  column-gap: 30px; /* Расстояние между карточками в одном ряду */
+  row-gap: 25px; /* Расстояние между строками */
+}
+
+/* Кнопка Browse All Product */
+.baseBtn {
+  display: flex;
+  justify-content: center;
+  margin-top: 48px;
+  margin-bottom: 95px;
+}
+
+.btnAllProduct {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.2px;
+  color: #F26376;
+  border: 1px solid #FF6A6A;
+  background: transparent;
+  padding: 15px 40px;
+  cursor: pointer;
+}
+
+.btnAllProduct:hover {
+  color: #FFFFFF;
+  background: #F16D7F;
+  padding: 15px 40px;
+}
+
+/* Блок с преимуществами */
+.containerFooter {
+  background: #222224;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.containerFooter__offers {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  justify-content: space-between;
+  gap: 30px; /* Расстояние между дочерними элементами */
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 103px 230px;
+}
+
+.containerFooter__offers-width {
+  max-width: 360px;
+  max-height: 134px;
+  text-align: center;
+  justify-items: center;
+  color: #FBFBFB;
+  font-weight: 400;
+}
+
+.containerFooter__offers-marginBottomImg1 {
+  margin-bottom: 28px;
+}
+
+.containerFooter__offers-marginBottomImg2 {
+  margin-bottom: 19px;
+}
+
+.containerFooter__offers-marginBottomImg3 {
+  margin-bottom: 25px;
+}
+
+.containerFooter__offers h2 {
+  font-size: 19.96px;
+  line-height: 23.95px;
+  margin-bottom: 16px;
+}
+
+.containerFooter__offers p {
+  font-size: 13.97px;
+  line-height: 16.77px;
+  max-width: 320px;
+}
+
+/* Блок с изображением и формой для E-Mail */
+.containerFooter__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  max-width: 1600px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.overlayFooter {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlayFooter img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/*  Наложение поверх изображения блока */
+.overlayFooter::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(244, 244, 244, 0.7); /* Полупрозрачное наложение */
+  z-index: 1; /* Находится под контентом */
+}
+
+/*  Текст с формой для E-Mail поверх изображения блока с наложением  */
+.overlayFooter-content {
+  position: absolute; /* Размещаем поверх родительского блока */
+  top: 45%;
+  left: 30%;
+  transform: translate(-25%, -50%); /* Центрирование методом подбора*/
+  display: flex; /* Выравнивание контента */
+  align-items: center;
+  gap: 328px;
+  z-index: 2; /* Поверх фона и наложения */
+}
+
+.containerFooter__leftSide {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  max-width: 360px;
+  gap: 30px;
+}
+
+.containerFooter__leftSide p {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+}
+
+.containerFooter_leftSide-italic {
+  font-style: italic; /* Выделение части текста в левой части блока */
+}
+
+.containerFooter__rightSide {
+  text-align: center;
+  text-transform: uppercase;
+  max-width: 557px;
+}
+
+.containerFooter__rightSide h2 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 40px;
+}
+
+.containerFooter__rightSide h3 {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 30px;
+  margin-bottom: 32px;
+}
+
+.containerFooter__rightSide-formSize {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 0; /* Убирает промежуток между input и button */
+}
+
+.containerFooter__rightSide input {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.8px;
+  border-radius: 50px 0 0 50px; /* Закругление только левых углов формы */
+  max-width: 256px;
+  height: 49px;
+  border: none;
+  padding: 10px 64px 10px 22px; /* Внутренние отступы */
+  background-color: #E1E1E1;
+  &:focus {
+    outline: none;
+    border: transparent; /* Полностью убирает видимость границы */
+  }
+}
+
+.containerFooter__rightSide button {
+  background: #F16D7F;
+  border-radius: 0 50px 50px 0; /* Закругление только правых углов формы */
+  color: #FFFFFF;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.8px;
+  max-width: 100px;
+  height: 49px;
+  border: none;
+  padding: 10px 20px;
+}
+
+.containerFooter__bottom {
+  display: flex;
+  align-items: center; /* Выравнивание по вертикали */
+  justify-content: space-between; /* Распределение элементов по краям */
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 24px 230px;
+}
+
+/* Подвал сайта с текстом и иконками соцсетей */
+.containerFooter__bottom-text {
+  display: flex;
+  align-items: center; /* Убедитесь, что текст выровнен по центру */
+}
+
+.containerFooter__bottom-icons {
+  display: flex;
+  align-items: center; /* Выравнивание иконок по центру */
+  gap: 7px; /* Расстояние между иконками */
+  cursor: pointer;
+}
+
+.icon-wrapper {
+  display: flex; /* Для корректной работы flex-контейнеров */
+  align-items: center; /* Выравнивание иконки по вертикали */
+}
+
+.containerFooter__bottom-text p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.2px;
+  color: #FBFBFB;
+}
+
+/* Исходные цвета */
+.icon-wrapper .bg {
+  fill: white; /* Цвет фона иконки*/
+  transition: fill 0.3s ease; /* Плавный переход цвета */
+}
+
+.icon-wrapper .icon-path {
+  fill: black; /* Цвет иконки */
+  transition: fill 0.3s ease; /* Плавный переход цвета */
+}
+
+/* Цвета при наведении только на конкретную иконку */
+.icon-wrapper:hover .bg {
+  fill: #F16D7F; /* Фон иконки становится розовым */
+}
+
+.icon-wrapper:hover .icon-path {
+  fill: white; /* Иконка становится белой */
+}
+
+@media (max-width: 1140px) and (min-width: 768px) {
+  .container {
+    max-width: 736px;
+  }
+
+  .header {
+    padding: 18px 32px;
+  }
+
+  .logo img {
+    max-height: 38px; /* Ограничение высоты логотипа */
+  }
+
+  .menu {
+    gap: 25px; /* Расстояние между кнопками */
+  }
+
+  .containerMain_mainContent {
+    max-width: 770px;
+    margin: 0 auto;
+    display: flex; /* Включаем flexbox */
+    align-items: center;
+    justify-items: center;
+    gap: 39px; /* Расстояние между дочерними элементами */
+  }
+
+  .mainContent__leftSide {
+    max-width: 386px;
+  }
+
+  .mainContent__rightSide_text {
+    max-width: 311px; /* Ограничение ширины текста */
+  }
+
+  .mainContent__rightSide h2 {
+    font-size: 44px;
+    line-height: 52.8px;
+  }
+
+  .mainContent__rightSide h3 {
+    font-size: 24px;
+    line-height: 28.8px;
+  }
+
+  .cardList {
+    gap: 19px; /* Расстояние между элементами */
+  }
+
+  .items {
+    margin-top: 110px;
+  }
+
+  .items h2 {
+    margin-bottom: 3px;
+  }
+
+  .items h3 {
+    margin-bottom: 72px;
+  }
+
+  .rectanglesDescription {
+    background: #F8F8F8; /* Цвет фона для описания */
+    padding: 25px 30px 20px 15px; /* Отступы внутри описания */
+  }
+
+  .rectanglesDescription h2 {
+    margin-bottom: 12px;
+  }
+
+  .rectanglesDescription p {
+    margin-bottom: 18px;
+  }
+
+  .rectanglesLocation {
+    column-gap: 16px; /* Расстояние между карточками в одном ряду */
+    row-gap: 16px; /* Расстояние между строками */
+  }
+
+  .baseBtn {
+    margin-top: 32px;
+    margin-bottom: 70px;
+  }
+
+  .containerFooter__offers {
+    flex-direction: column;
+    gap: 48px; /* Расстояние между дочерними элементами */
+    max-width: 768px;
+    padding: 48px 204px 64px 204px;
+  }
+
+  .containerFooter__form {
+    max-width: 768px;
+    height: 693px;
+  }
+
+  .overlayFooter img {
+    height: 115%;
+    object-fit: cover;
+    object-position: 23% 20%;
+    transform: translateY(5%); /* Центрируем изображение */
+  }
+
+  .overlayFooter-content {
+    flex-direction: column;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    gap: 85px;
+  }
+
+  .containerFooter__rightSide h3 {
+    margin-bottom: 27px;
+  }
+
+  .containerFooter__bottom {
+    max-width: 768px;
+    padding: 24px 32px;
+  }
+}
+
+
+
+@media (max-width: 767px) {
+  .container {
+    max-width: 343px;
+  }
+
+  .header {
+    padding: 18px 16px;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .containerMain {
+    background: #F1E4E6;
+    max-width: 100%;
+    padding: 148px 56px;
+  }
+
+  .containerMain_mainContent {
+    max-width: 375px;
+    max-height: 363px;
+    margin: 0 auto;
+    justify-content: center;
+  }
+
+  .mainContent__rightSide_text {
+    max-width: 263px; /* Ограничение ширины текста */
+  }
+
+  .mainContent__rightSide h2 {
+    font-size: 38px;
+    line-height: 45.6px;
+  }
+
+  .mainContent__rightSide h3 {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .cardList {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Одна колонка */
+    gap: 32px; /* Расстояние между карточками */
+  }
+
+  .cardBig {
+    background-position: center;
+    grid-column: 1;
+    grid-row: 4;
+    height: 111px;
+  }
+
+  .cardBig img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .items {
+    margin-top: 64px;
+  }
+
+  .items h2 {
+    margin-bottom: 3px;
+  }
+
+  .items h3 {
+    margin-bottom: 65px;
+  }
+
+  .rectanglesDescription {
+    padding: 24px 28px 20px 16px; /* Отступы внутри описания */
+  }
+  .rectanglesDescription h2 {
+    margin-bottom: 12px;
+  }
+
+  .rectanglesDescription p {
+    margin-bottom: 18px;
+  }
+
+  .rectanglesLocation {
+    row-gap: 16px; /* Расстояние между строками */
+  }
+
+  .baseBtn {
+    margin-top: 40px;
+    margin-bottom: 85px;
+  }
+
+  .containerFooter__offers {
+    flex-direction: column;
+    gap: 46px; /* Расстояние между дочерними элементами */
+    max-width: 375px;
+    padding: 48px 14px 81px 14px;
+  }
+
+  .containerFooter__offers-marginBottomImg1 {
+    margin-bottom: 27px;
+  }
+
+  .containerFooter__offers-marginBottomImg2 {
+    margin-bottom: 18px;
+  }
+
+  .containerFooter__offers-marginBottomImg3 {
+    margin-bottom: 24px;
+  }
+
+  .containerFooter__form {
+    max-width: 375px;
+    height: 550px;
+  }
+
+  .overlayFooter img {
+    height: 115%;
+    object-position: 27% 20%;
+    transform: translateY(-3%);
+  }
+
+  .overlayFooter-content {
+    flex-direction: column;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    gap: 65px;
+  }
+
+  .containerFooter__rightSide h3 {
+    margin-bottom: 22px;
+  }
+
+  .containerFooter__bottom {
+    flex-direction: column-reverse;
+    max-width: 375px;
+    padding: 43px 114px 9px 114px;
+    gap: 40px;
+  }
+  .containerFooter__bottom-text p {
+    text-wrap: nowrap;
+  }
+}

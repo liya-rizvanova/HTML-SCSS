@@ -1,0 +1,43 @@
+@use "sass:math";
+
+// 1
+@import 'vars';
+@import 'mixins';
+
+%font-normal {
+  font-family: sans-serif;
+  font-style: normal;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+// стили для текста
+.color-text {
+	color: $colorText;
+}
+
+// 2
+.nav {
+	display: flex;
+	gap: $gapGrid;
+	&__link {
+		text-decoration: none;
+    @extend %font-normal;
+	}
+}
+
+// 3
+.content {
+  width: $widthSite;
+  display: flex;
+  gap: $gapGrid;
+  @include center();
+  &__item {
+    width: math.div($widthSite, 4); // Используем math.div вместо /
+    border: $border;
+    height: 200px;
+  }
+}

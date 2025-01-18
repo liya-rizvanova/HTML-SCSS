@@ -1,0 +1,622 @@
+@use "sass:math";
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:wght@800&display=swap" rel="stylesheet');
+
+@import "vars";
+@import "mixins";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+summary {
+	display: block;
+}
+
+summary::-webkit-details-marker {
+	display: none;
+}
+
+%flex {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+body {
+	background-color: #ffffff;
+	font-family: Lato, sans-serif;
+}
+
+a {
+	text-decoration: none;
+}
+
+.center {
+	// padding-left: calc(50% - #{$widthSite / 2});
+	padding-left: calc(50% - $widthSite / 2);
+	padding-right: calc(50% - $widthSite / 2);
+}
+
+.filter-sort {
+	height: 132px;
+	padding-top: 39px;
+	box-sizing: border-box;
+	display: flex;
+	gap: $gapGrid;
+	position: relative;
+}
+
+.filter {
+	padding-top: 13px;
+	width: $thirdSite;
+	position: relative;
+	z-index: 1;
+
+	&__content {
+		padding: 39px 16px 16px 16px;
+		display: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		background: #ffffff;
+		box-shadow: none;
+		flex-direction: column;
+		box-sizing: border-box;
+	}
+	&[open] &__content {
+		display: flex;
+		box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+	}
+	&[open] &__heading {
+		color: $colorSelectSite;
+	}
+	&[open] path {
+		fill: $colorSelectSite;
+	}
+	&__summary {
+		display: flex;
+		align-items: center;
+		gap: 11px;
+		padding-left: 16px;
+		cursor: pointer;
+		position: relative;
+		z-index: 2;
+	}
+	&__heading {
+		font-style: normal;
+		font-size: 14px;
+		font-weight: 600;
+		line-height: 16.8px;
+		color: $colorText;
+	}
+	&__item {
+		margin-top: 16px;
+	}
+	&[open] .filter__head {
+		color: $colorSelectSite;
+	}
+	&__link-box {
+		display: flex;
+		flex-direction: column;
+		gap: 11px;
+		padding: 12px 16px;
+	}
+	&__link {
+		font-style: normal;
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 16.8px;
+		color: #6f6e6e;
+		&:hover {
+			color: $colorSelectSite;
+		}
+	}
+	&__head {
+		font-style: normal;
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 16.8px;
+		color: #6f6e6e;
+		padding: 8px 11px 11px 11px;
+		border-bottom: 1px solid #ebebeb;
+		border-left: 5px solid $colorSelectSite;
+	}
+	&__item[open] &__head {
+		color: $colorSelectSite;
+	}
+}
+
+.sort {
+	padding-top: 12px;
+	display: flex;
+	gap: 18px;
+	&__details {
+		position: relative;
+	}
+	&__summary {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
+	&__check {
+		display: flex;
+		align-items: center;
+		gap: 9px;
+		font-style: normal;
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 16.41px;
+		color: #6f6e6e;
+	}
+	&__heading {
+		font-style: normal;
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 16.8px;
+		color: #6f6e6e;
+	}
+	&__box {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		box-shadow: 6px 4px 35px 0px #00000036;
+		background-color: #ffffff;
+		padding: 7px 30px 11px 9px;
+		position: absolute;
+		left: -9px;
+		top: 22px;
+	}
+}
+
+.header {
+	background-color: $backBlock;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	align-items: center;
+	justify-content: space-between;
+	@extend %flex;
+	position: relative;
+	&__left {
+		display: flex;
+		align-items: center;
+		gap: 41px;
+	}
+}
+
+.box-content {
+	overflow: hidden;
+}
+
+#burger {
+	position: absolute;
+	left: -99999px;
+	visibility: hidden;
+	&:checked ~ .popupMenu {
+		right: -$widthBurgerMenu;
+	}
+}
+
+.popupMenu {
+  position: absolute; /* Абсолютное позиционирование относительно .containerMain */
+  top: 82px; /* Отступ от верхнего края контейнера */
+  right: 0; /* Отступ от правого края контейнера */
+  width: 232px; /* Ширина меню */
+	// 	box-sizing: border-box;
+  background-color: white;
+  border: none;
+	transition: right 0.3s;
+  box-shadow: 6px 4px 35px 0px #00000036; /* Тень для объема */
+  z-index: 5; /* Поверх остальных элементов */
+  padding: 32px; /* Внутренние отступы для расположения содержимого */
+	box-sizing: border-box;
+	h2 {
+		font-size: 14px;
+		font-weight: 700;
+		line-height: 16.8px;
+		text-transform: uppercase;
+		margin-bottom: 24px;
+	}
+  a {
+    color: inherit;
+  }
+	&__content {
+		display: flex;
+		flex-direction: column;
+	}
+	&__close {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		width: 15px;
+		cursor: pointer;
+		background: transparent;
+		border: none;
+	}
+	&__section {
+		& h3 {
+			font-size: 14px;
+			font-weight: 400;
+			line-height: 16.8px;
+			color: #F16D7F;
+			text-transform: uppercase;
+			margin-bottom: 12px;
+			list-style: none; /* Убирает маркеры у списка */
+		}
+	}
+	&__section-categories {
+		& li {
+			padding-left: 25px; /* Отступ от левого края блока */
+			font-size: 14px;
+			font-weight: 400;
+			line-height: 16.8px;
+			color: #6F6E6E;
+			gap: 11px;
+			margin-bottom: 11px;
+			list-style: none;
+		}
+	}
+}
+
+.top-head {
+	background-color: #f8f3f4;
+	padding-top: 60px;
+	padding-bottom: 60px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	&__heading {
+		font-size: 24px;
+		font-weight: 400;
+		font-style: normal;
+		line-height: 29px;
+		color: $colorSelectSite;
+	}
+}
+
+.breadcrumbs {
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	gap: 5px;
+	& p {
+		font-size: 14px;
+		font-weight: 300;
+		font-style: normal;
+		line-height: 17px;
+		color: #636363;
+	}
+	&__link {
+		font-size: 14px;
+		font-weight: 300;
+		font-style: normal;
+		line-height: 17px;
+		color: #636363;
+	}
+	&__link_site {
+		font-size: 14px;
+		font-weight: 700;
+		font-style: normal;
+		line-height: 17px;
+		color: $colorSelectSite;
+	}
+}
+
+.women-collection {
+	position: relative;
+	z-index: 1; /* Нижний слой */
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border: 1px solid #eaeaea;
+	height: 777px;
+	background: #f7f7f7;
+}
+
+.slider__arrow:hover .arrow {
+	fill: $colorSelectSite;
+}
+
+.description {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -8%);
+	z-index: 2; /* Верхний слой */
+	display: flex;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid #eaeaea;
+	background-color: #ffffff;
+	height: 601px;
+	width: $widthSite;
+	padding: 0;
+	&__heading {
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 16.8px;
+		font-style: normal;
+		color: $colorSelectSite;
+		margin-top: 65px;
+	}
+	&__line1 {
+		width: 63px;
+		height: 3.03px;
+		background-color: $colorSelectSite;
+		margin: 12px auto; /* отступы сверху/снизу и центрирование */
+	}
+	&__head {
+		font-size: 18px;
+		font-weight: 400;
+		line-height: 21.6px;
+		font-style: normal;
+		color: #4d4d4d;
+	}
+	&__text {
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 16.8px;
+		font-style: normal;
+		color: #5e5e5e;
+		margin-top: 48px;
+		margin-bottom: 32px;
+		width: 555px;
+		text-align: center;
+	}
+	&__price {
+		font-style: normal;
+		font-size: 24px;
+		font-weight: 400;
+		line-height: 28.8px;
+		color: $colorSelectSite;
+		margin-bottom: 65px;
+	}
+	&__line2 {
+		width: 640px;
+		border: 1px solid #eaeaea;
+	}
+	&__sort {
+		margin-top: 65px;
+		display: flex;
+		gap: 23px;
+		flex-direction: row;
+		align-items: center;
+	}
+	&__sort-summary {
+		gap: 10px;
+		display: flex;
+		align-items: center;
+	}
+	&__sort-heading {
+		font-style: normal;
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 16.8px;
+		color: #6f6e6e;
+	}
+	&__button {
+		margin-top: 48px;
+		margin-bottom: 65px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border: $colorSelectSite solid;
+		background-color: transparent;
+		cursor: pointer;
+		width: 212px;
+		padding: 12px;
+		gap: 23px;
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 19.2px;
+		font-style: normal;
+		background-color: transparent;
+		color: $colorSelectSite;
+	}
+}
+
+.product {
+	margin-top: 63px;
+	width: $thirdSite;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 128px;
+	&__box {
+		@include centerflex();
+		gap: $gapGrid;
+	}
+	&__img {
+		width: 100%;
+	}
+	&__content {
+		background-color: #f8f8f8;
+		padding: 24px 16px;
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+	&__name {
+		font-size: 13px;
+		font-weight: 400;
+		font-style: normal;
+		line-height: 16px;
+		color: $colorText;
+	}
+	&__text {
+		font-size: 14px;
+		font-weight: 300;
+		font-style: normal;
+		line-height: 17px;
+		color: #5d5d5d;
+	}
+	&__price {
+		font-size: 16px;
+		font-weight: 400;
+		font-style: normal;
+		line-height: 19px;
+		color: $colorSelectSite;
+	}
+}
+
+/* Блок с преимуществами */
+.containerFooter {
+	background: #222224;
+	max-width: 100%;
+	overflow: hidden;
+	&__form {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+		max-width: 1600px;
+		margin: 0 auto;
+		height: 100%;
+	}
+	&__overlayFooter {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	&__overlayFooter img {
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+	}
+	&__overlayFooter::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(244, 244, 244, 0.7); /* Полупрозрачное наложение */
+		z-index: 1; /* Находится под контентом */
+	}
+	&__overlayFooter-content {
+		position: absolute; /* Размещаем поверх родительского блока */
+		top: 45%;
+		left: 30%;
+		transform: translate(-25%, -50%); /* Центрирование методом подбора*/
+		display: flex; /* Выравнивание контента */
+		align-items: center;
+		gap: 328px;
+		z-index: 2; /* Поверх фона и наложения */
+	}
+	&__leftSide {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		max-width: 360px;
+		gap: 30px;
+		& p {
+			font-size: 20px;
+			font-weight: 400;
+			line-height: 24px;
+			text-align: center;
+		}
+	}
+	&__leftSide-italic {
+		font-style: italic; /* Выделение части текста в левой части блока */
+	}
+	&__rightSide {
+		text-align: center;
+		text-transform: uppercase;
+		max-width: 557px;
+		& h2 {
+			font-size: 24px;
+			font-weight: 700;
+			line-height: 40px;
+		}
+		& h3 {
+			font-size: 18px;
+			font-weight: 400;
+			line-height: 30px;
+			margin-bottom: 32px;
+		}
+		& input {
+			display: flex;
+			font-size: 14px;
+			font-weight: 400;
+			line-height: 16.8px;
+			border-radius: 50px 0 0 50px; /* Закругление только левых углов формы */
+			max-width: 256px;
+			height: 49px;
+			border: none;
+			padding: 0 64px 0 22px; /* Внутренние отступы */
+			background-color: #E1E1E1;
+			&:focus {
+				outline: none;
+				border: transparent; /* Полностью убирает видимость границы */
+			}
+		}
+		& button {
+			background: #f16d7f;
+			border-radius: 0 50px 50px 0; /* Закругление только правых углов формы */
+			color: #ffffff;
+			cursor: pointer;
+			font-size: 14px;
+			font-weight: 400;
+			line-height: 16.8px;
+			max-width: 100px;
+			height: 49px;
+			border: none;
+			padding: 10px 20px;
+		}
+	}
+	&__rightSide-formSize {
+		display: flex;
+		align-items: center;
+		text-align: center;
+		gap: 0; /* Убирает промежуток между input и button */
+	}
+	&__bottom {
+		display: flex;
+		align-items: center; /* Выравнивание по вертикали */
+		justify-content: space-between; /* Распределение элементов по краям */
+		max-width: 1600px;
+		margin: 0 auto;
+		padding: 24px 230px;
+	}
+	&__bottom-text {
+		display: flex;
+		align-items: center; /* Убедитесь, что текст выровнен по центру */
+		& p {
+			font-size: 16px;
+			font-weight: 400;
+			line-height: 19.2px;
+			color: #fbfbfb;
+		}
+	}
+	&__bottom-icons {
+		display: flex;
+		align-items: center; /* Выравнивание иконок по центру */
+		gap: 7px; /* Расстояние между иконками */
+		cursor: pointer;
+	}
+	& .icon-wrapper {
+		display: flex; /* Для корректной работы flex-контейнеров */
+		align-items: center; /* Выравнивание иконки по вертикали */
+		& .bg {
+			fill: white; /* Цвет фона иконки*/
+			transition: fill 0.3s ease; /* Плавный переход цвета */
+		}
+		& .icon-path {
+			fill: black; /* Цвет иконки */
+			transition: fill 0.3s ease; /* Плавный переход цвета */
+		}
+		&:hover .bg {
+			fill: #f16d7f; /* Фон иконки становится розовым */
+		}
+		&:hover .icon-path {
+			fill: white; /* Иконка становится белой */
+		}
+	}
+}

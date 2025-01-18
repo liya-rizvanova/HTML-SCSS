@@ -1,0 +1,128 @@
+@use "sass:math";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  text-decoration: none;
+}
+
+summary {
+  display: block;
+  // 4
+  color: cadetblue;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+.sort {
+  display: flex;
+  gap: 28px;
+}
+
+.text-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.details {
+  position: relative;
+  &__box {
+    position: absolute;
+    left: -9px;
+    top: 22px;
+    box-shadow: 6px 4px 35px 0px #00000036;
+    background: #fff;
+    padding: 7px 9px 11px;
+    box-sizing: border-box;
+    width: 79px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+}
+
+.center {
+  padding-left: calc(50% - 570px);
+  padding-right: calc(50% - 570px);
+}
+
+.top {
+  overflow: hidden;
+}
+
+#check {
+  position: absolute;
+  left: -9999999px;
+  visibility: hidden;
+}
+
+#check:checked ~.menu-burger {
+  right: -232px;
+}
+
+.header {
+  position: relative;
+  height: 75px;
+  background: #2f2f2f;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu-burger {
+  position: absolute;
+  transition: right 0.5s;
+  top: 75px;
+  right: 0;
+  width: 232px;
+  padding: 32px;
+  box-sizing: border-box;
+  box-shadow: 6px 4px 35px 0px #00000036;
+  background: #fff;
+  &__heading {
+    font-style: normal;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 16.8px;
+    margin-bottom: 4px;
+  }
+  &__subheading {
+    font-style: normal;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.8px;
+    color: #F16D7F;
+    margin-bottom: 12px;
+    margin-top: 20px;
+  }
+  &__ul {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    list-style-type: none;
+    padding-left: 20px;
+  }
+  &__link {
+    text-decoration: none;
+    font-style: normal;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.8px;
+    color: #6F6E6E;
+    &:hover {
+      color: #F16D7F;
+    }
+  }
+}
+
+.promo {
+  height: 764px;
+  background: #F1E4E6;
+}

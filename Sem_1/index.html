@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Sem 1</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<!-- 1:
+1. В html добавить блок <div class="container"></div>
+2. Создайте переменную ширины сайта и присвоить ей значение 1200px
+3. Создайте переменную значения цвета текста сайта, которая будет равна #8A2BE2
+4. Внутри блока container добавить заголовок “Знакомство с препроцессорами” слово
+препроцессорами необходимо выделить цветом из переменной пункт 3
+5. Создайте комментарий в вашем коде scss, добавьте в него произвольный текст
+-->
+
+		<!-- 2:
+1. Создайте меню сайта
+<nav>
+<div class="nav">
+<a href="" class="nav__link">link-1</a>
+<a href="" class="nav__link">link-2</a>
+<a href="" class="nav__link">link-3</a>
+<a href="" class="nav__link">link-4</a>
+</div>
+</nav>
+2. Используя вложенность препроцессоров, необходимо переписать код css в препроцессорный
+.nav {
+display: flex;
+gap: 16px;
+}
+.nav__link {
+text-decoration: none;
+}
+3. Добавить переменную gap, и заменить ее у селектора .nav
+-->
+
+<!-- 3:
+1. Дан код html
+<div class="content">
+<div class="content__item"></div>
+<div class="content__item"></div>
+<div class="content__item"></div>
+<div class="content__item"></div>
+</div>
+2. Для блока content добавить стили display: flex;
+3. Создать вложенность с использованием препроцессоров
+4. Для блока content__item добавить значение ширины, равное ¼ от переменной ширины container
+5. Для блока content добавить gap равный переменной из задания 2
+6. Создать новую переменную, равную: 1px solid #000;
+7. Добавить стили для content__item. используя переменную из пункта 6
+height: 200px;
+border: 1px solid #000;
+ -->
+
+<!-- 4
+1. Создать фрагмент vars
+2. Добавить в него все созданные переменные
+3. Подключить данный фрагмент к основному файлу style.scss
+-->
+
+<!-- 5
+1. Создать примесь
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
+2. Добавить данную примесь к блоку content
+3. Создать наследование
+font-family: sans-serif;
+font-style: normal;
+4. Добавить данное наследование для nav__link
+-->
+		<div class="container">
+			<h2 class="title">Знакомство с <span class="color-text">препроцессорами</span></h2>
+			<nav>
+				<div class="nav">
+					<a href="" class="nav__link">link-1</a>
+					<a href="" class="nav__link">link-2</a>
+					<a href="" class="nav__link">link-3</a>
+					<a href="" class="nav__link">link-4</a>
+				</div>
+			</nav>
+			<div class="content">
+				<div class="content__item"></div>
+				<div class="content__item"></div>
+				<div class="content__item"></div>
+				<div class="content__item"></div>
+			</div>
+		</div>
+	</body>
+</html>

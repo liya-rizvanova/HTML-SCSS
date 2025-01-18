@@ -1,0 +1,285 @@
+@use "sass:math";
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:wght@800&display=swap" rel="stylesheet');
+
+@import "vars";
+@import "mixins";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+summary {
+	display: block;
+}
+
+summary::-webkit-details-marker {
+	display: none;
+}
+
+%flex {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+body {
+	background-color: #ffffff;
+	font-family: Lato, sans-serif;
+}
+
+a {
+	text-decoration: none;
+}
+
+.center {
+	// padding-left: calc(50% - #{$widthSite / 2});
+	padding-left: calc(50% - $widthSite / 2);
+	padding-right: calc(50% - $widthSite / 2);
+}
+
+.filter-sort {
+	height: 132px;
+	padding-top: 39px;
+	box-sizing: border-box;
+	display: flex;
+	gap: $gapGrid;
+	position: relative;
+}
+
+.filter {
+	padding-top: 13px;
+	width: $thirdSite;
+	position: relative;
+	z-index: 1;
+
+	&__content {
+		padding: 39px 16px 16px 16px;
+		display: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		background: #ffffff;
+		box-shadow: none;
+		flex-direction: column;
+		box-sizing: border-box;
+	}
+	&[open] &__content {
+		display: flex;
+		box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+	}
+	&[open] &__heading {
+		color: $colorSelectSite;
+	}
+	&[open] path {
+		fill: $colorSelectSite;
+	}
+	&__summary {
+		display: flex;
+		align-items: center;
+		gap: 11px;
+		padding-left: 16px;
+		cursor: pointer;
+		position: relative;
+		z-index: 2;
+	}
+	&__heading {
+		font-style: normal;
+		font-size: 14px;
+		font-weight: 600;
+		line-height: 16.8px;
+		color: $colorText;
+	}
+	&__item {
+		margin-top: 16px;
+	}
+	&[open] .filter__head {
+		color: $colorSelectSite;
+	}
+	&__link-box {
+		display: flex;
+		flex-direction: column;
+		gap: 11px;
+		padding: 12px 16px;
+	}
+	&__link {
+		font-style: normal;
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 16.8px;
+		color: #6f6e6e;
+		&:hover {
+			color: $colorSelectSite;
+		}
+	}
+	&__head {
+		font-style: normal;
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 16.8px;
+		color: #6f6e6e;
+		padding: 8px 11px 11px 11px;
+		border-bottom: 1px solid #ebebeb;
+		border-left: 5px solid $colorSelectSite;
+	}
+	&__item[open] &__head {
+		color: $colorSelectSite;
+	}
+}
+
+.sort {
+	padding-top: 12px;
+	display: flex;
+	gap: 18px;
+	&__details {
+		position: relative;
+	}
+	&__summary {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
+	&__check {
+		display: flex;
+		align-items: center;
+		gap: 9px;
+		font-style: normal;
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 16.41px;
+		color: #6f6e6e;
+	}
+	&__heading {
+		font-style: normal;
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 16.8px;
+		color: #6f6e6e;
+	}
+	&__box {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		box-shadow: 6px 4px 35px 0px #00000036;
+		background-color: #ffffff;
+		padding: 7px 30px 11px 9px;
+		position: absolute;
+		left: -9px;
+		top: 22px;
+	}
+}
+
+.header {
+	background-color: $backBlock;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	align-items: center;
+	justify-content: space-between;
+	@extend %flex;
+	position: relative;
+	&__left {
+		display: flex;
+		align-items: center;
+		gap: 41px;
+	}
+}
+
+#burger {
+	position: absolute;
+	left: -99999px;
+	visibility: hidden;
+	&:checked ~ .nav {
+		right: -$widthBurgerMenu;
+	}
+}
+
+.box-content {
+	overflow: hidden;
+}
+
+.nav {
+	box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+	background: #ffffff;
+	width: 232px;
+	padding: 32px;
+	box-sizing: border-box;
+	position: absolute;
+	top: 82px;
+	right: 0;
+	transition: right 0.3s;
+}
+
+.top-head {
+	background-color: #f8f3f4;
+	padding-top: 60px;
+	padding-bottom: 60px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	&__heading {
+		font-size: 24px;
+		font-weight: 400;
+		font-style: normal;
+		line-height: 29px;
+		color: $colorSelectSite;
+	}
+}
+
+.breadcrumbs__link {
+	font-size: 14px;
+	font-weight: 300;
+	font-style: normal;
+	line-height: 17px;
+	color: #636363;
+}
+
+.breadcrumbs__link_site {
+	font-size: 14px;
+	font-weight: 700;
+	font-style: normal;
+	line-height: 17px;
+	color: $colorSelectSite;
+}
+
+.product__box {
+	@include centerflex();
+	gap: $gapGrid;
+}
+
+.product {
+	width: $thirdSite;
+	display: flex;
+	flex-direction: column;
+	&__img {
+		width: 100%;
+	}
+	&__content {
+		background-color: #f8f8f8;
+		padding: 24px 16px;
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+	&__name {
+		font-size: 13px;
+		font-weight: 400;
+		font-style: normal;
+		line-height: 16px;
+		color: $colorText;
+	}
+	&__text {
+		font-size: 14px;
+		font-weight: 300;
+		font-style: normal;
+		line-height: 17px;
+		color: #5d5d5d;
+	}
+	&__price {
+		font-size: 16px;
+		font-weight: 400;
+		font-style: normal;
+		line-height: 19px;
+		color: $colorSelectSite;
+	}
+}
