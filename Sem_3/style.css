@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.center {
+  padding-left: -520px;
+  padding-right: -520px;
+}
+
+.title {
+  font-family: "Merriweather";
+}
+
+.text {
+  font-family: "Open Sans_italic";
+}
+
+.contour {
+  font-size: 55px;
+  color: #fff;
+  -webkit-text-stroke: 1px blue;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 100px 0 100px 200px;
+  border-color: transparent transparent transparent blue;
+}
+
+.triangle2 {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 150px 150px 0;
+  border-color: transparent transparent #FF0000 transparent;
+}
+
+.title-frame {
+  border: 30px solid;
+  padding: 25px;
+  height: 50px;
+  text-align: center;
+  font-size: 30px;
+  color: violet;
+  -o-border-image: url("img/rama-lace.png") 30 round round;
+     border-image: url("img/rama-lace.png") 30 round round;
+}
+
+.text-frame {
+  border: 30px solid;
+  border-image-slice: 1;
+  border-width: 5px;
+  border-image-source: linear-gradient(to left, pink, purple);
+}
+
+.breadcrumb {
+  font-family: sans-serif;
+  background: #f8f3f4;
+  height: 148px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 100px;
+}
+.breadcrumb__heading {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 29px;
+  color: #f16d7f;
+}
+.breadcrumb__link {
+  text-decoration: none;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 17px;
+  color: #636363;
+}
+.breadcrumb__link:hover {
+  color: #f16d7f;
+}
+.breadcrumb__links {
+  display: flex;
+}
+.breadcrumb__box:last-of-type .breadcrumb__link {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 17px;
+  color: #f16d7f;
+}
+.breadcrumb__box:not(:last-child)::after {
+  content: "/";
+  padding-left: 8px;
+  padding-right: 8px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 17px;
+  color: #636363;
+}/*# sourceMappingURL=style.css.map */
