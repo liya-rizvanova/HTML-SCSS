@@ -235,7 +235,7 @@ a {
 		border: none;
 	}
 	&__section {
-		& h3 {
+		h3 {
 			font-size: 14px;
 			font-weight: 400;
 			line-height: 16.8px;
@@ -246,7 +246,7 @@ a {
 		}
 	}
 	&__section-categories {
-		& li {
+		li {
 			padding-left: 25px; /* Отступ от левого края блока */
 			font-size: 14px;
 			font-weight: 400;
@@ -408,7 +408,7 @@ a {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		border: $colorSelectSite solid;
+		border: 1px $colorSelectSite solid;
 		background-color: transparent;
 		cursor: pointer;
 		width: 212px;
@@ -420,6 +420,14 @@ a {
 		font-style: normal;
 		background-color: transparent;
 		color: $colorSelectSite;
+		fill: $colorSelectSite;
+		&:hover {
+			color: #fff;
+			background-color: $colorSelectSite;
+		}
+		&:hover path {
+			fill: #fff;
+		}
 	}
 }
 
@@ -534,18 +542,18 @@ a {
 		text-align: center;
 		text-transform: uppercase;
 		max-width: 557px;
-		& h2 {
+		h2 {
 			font-size: 24px;
 			font-weight: 700;
 			line-height: 40px;
 		}
-		& h3 {
+		h3 {
 			font-size: 18px;
 			font-weight: 400;
 			line-height: 30px;
 			margin-bottom: 32px;
 		}
-		& input {
+		input {
 			display: flex;
 			font-size: 14px;
 			font-weight: 400;
@@ -561,7 +569,7 @@ a {
 				border: transparent; /* Полностью убирает видимость границы */
 			}
 		}
-		& button {
+		button {
 			background: #f16d7f;
 			border-radius: 0 50px 50px 0; /* Закругление только правых углов формы */
 			color: #ffffff;
@@ -592,7 +600,7 @@ a {
 	&__bottom-text {
 		display: flex;
 		align-items: center; /* Убедитесь, что текст выровнен по центру */
-		& p {
+		p {
 			font-size: 16px;
 			font-weight: 400;
 			line-height: 19.2px;

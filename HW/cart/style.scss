@@ -1,6 +1,6 @@
 @use "sass:math";
 
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:wght@800&display=swap" rel="stylesheet');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:wght@800&display=swap');
 
 @import "vars";
 @import "mixins";
@@ -36,138 +36,6 @@ a {
 	// padding-left: calc(50% - #{$widthSite / 2});
 	padding-left: calc(50% - $widthSite / 2);
 	padding-right: calc(50% - $widthSite / 2);
-}
-
-.filter-sort {
-	height: 132px;
-	padding-top: 39px;
-	box-sizing: border-box;
-	display: flex;
-	gap: $gapGrid;
-	position: relative;
-}
-
-.filter {
-	padding-top: 13px;
-	width: $thirdSite;
-	position: relative;
-	z-index: 1;
-
-	&__content {
-		padding: 39px 16px 16px 16px;
-		display: none;
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		background: #ffffff;
-		box-shadow: none;
-		flex-direction: column;
-		box-sizing: border-box;
-	}
-	&[open] &__content {
-		display: flex;
-		box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
-	}
-	&[open] &__heading {
-		color: $colorSelectSite;
-	}
-	&[open] path {
-		fill: $colorSelectSite;
-	}
-	&__summary {
-		display: flex;
-		align-items: center;
-		gap: 11px;
-		padding-left: 16px;
-		cursor: pointer;
-		position: relative;
-		z-index: 2;
-	}
-	&__heading {
-		font-style: normal;
-		font-size: 14px;
-		font-weight: 600;
-		line-height: 16.8px;
-		color: $colorText;
-	}
-	&__item {
-		margin-top: 16px;
-	}
-	&[open] .filter__head {
-		color: $colorSelectSite;
-	}
-	&__link-box {
-		display: flex;
-		flex-direction: column;
-		gap: 11px;
-		padding: 12px 16px;
-	}
-	&__link {
-		font-style: normal;
-		font-size: 14px;
-		font-weight: 400;
-		line-height: 16.8px;
-		color: #6f6e6e;
-		&:hover {
-			color: $colorSelectSite;
-		}
-	}
-	&__head {
-		font-style: normal;
-		font-size: 14px;
-		font-weight: 400;
-		line-height: 16.8px;
-		color: #6f6e6e;
-		padding: 8px 11px 11px 11px;
-		border-bottom: 1px solid #ebebeb;
-		border-left: 5px solid $colorSelectSite;
-	}
-	&__item[open] &__head {
-		color: $colorSelectSite;
-	}
-}
-
-.sort {
-	padding-top: 12px;
-	display: flex;
-	gap: 18px;
-	&__details {
-		position: relative;
-	}
-	&__summary {
-		display: flex;
-		align-items: center;
-		gap: 10px;
-	}
-	&__check {
-		display: flex;
-		align-items: center;
-		gap: 9px;
-		font-style: normal;
-		font-size: 14px;
-		font-weight: 400;
-		line-height: 16.41px;
-		color: #6f6e6e;
-	}
-	&__heading {
-		font-style: normal;
-		font-size: 14px;
-		font-weight: 400;
-		line-height: 16.8px;
-		color: #6f6e6e;
-	}
-	&__box {
-		display: flex;
-		flex-direction: column;
-		gap: 8px;
-		box-shadow: 6px 4px 35px 0px #00000036;
-		background-color: #ffffff;
-		padding: 7px 30px 11px 9px;
-		position: absolute;
-		left: -9px;
-		top: 22px;
-	}
 }
 
 .header {
@@ -257,9 +125,12 @@ a {
 		cursor: pointer;
 		background: transparent;
 		border: none;
+		&:hover path {
+			fill: $colorSelectSite;
+		}
 	}
 	&__section {
-		& h3 {
+		h3 {
 			font-size: 14px;
 			font-weight: 400;
 			line-height: 16.8px;
@@ -270,7 +141,7 @@ a {
 		}
 	}
 	&__section-categories {
-		& li {
+		li {
 			padding-left: 25px; /* Отступ от левого края блока */
 			font-size: 14px;
 			font-weight: 400;
@@ -336,6 +207,9 @@ a {
 		cursor: pointer;
 		background: transparent;
 		border: none;
+		&:hover path {
+      fill: $colorSelectSite;
+    }
 	}
 	&_right-name {
 		font-size: 24px;
@@ -363,10 +237,11 @@ a {
 		display: flex; /* Позволяет располагать текст и окошко в одной строке */
 		align-items: center;
 		gap: 24px; /* Расстояние между текстом и окошком */
-		.box {
+		.number {
 			display: flex; /* Центрируем содержимое внутри окошка */
 			align-items: center;
 			justify-content: center;
+			text-align: center;
 			width: 44px; /* Ширина окошка */
 			height: 25px; /* Высота окошка */
 			border: 1px solid #EAEAEA; /* Рамка */
@@ -392,6 +267,11 @@ a {
 			color: $colorText;
 			border: 1px solid #A4A4A4;
 			background: #FFFFFF;
+			cursor: pointer;
+			&:hover {
+				color: #fff;
+				background-color: #A4A4A4;
+			}
 		}
 	}
 	&_left {
@@ -412,10 +292,17 @@ a {
 		}
 		&-form {
 			padding: 15px 17px;
-			color: #4A4A4A;
+			color: #b1b1b1;
 			border: 1px solid #A4A4A4;
 			background: #FFFFFF;
 			margin-bottom: 20px;
+			&::placeholder {
+				color: #4A4A4A;
+			}
+			&:focus {
+				outline: none; /* Убирает стандартное обводящее свечение */
+        border: 1px solid $colorSelectSite;
+			}
 		}
 		&-getQuote--btn {
 			display: flex;
@@ -430,6 +317,11 @@ a {
 			border: 1px solid #A4A4A4;
 			background: #FFFFFF;
 			margin-top: 3px;
+			cursor: pointer;
+			&:hover {
+				color: #fff;
+				background-color: #A4A4A4;
+			}
 		}
 		&-payment {
 			margin-top: 57px;
@@ -483,6 +375,12 @@ a {
         border: none;
         background: $colorSelectSite;
 				margin: 17px auto;
+				cursor: pointer;
+				&:hover {
+					color: $colorSelectSite;
+					background-color: #fff;
+					border: 1px solid $colorSelectSite;
+				}
 			}
 		}
 	}
@@ -542,7 +440,7 @@ a {
 		flex-direction: column;
 		max-width: 360px;
 		gap: 30px;
-		& p {
+		p {
 			font-size: 20px;
 			font-weight: 400;
 			line-height: 24px;
@@ -556,18 +454,18 @@ a {
 		text-align: center;
 		text-transform: uppercase;
 		max-width: 557px;
-		& h2 {
+		h2 {
 			font-size: 24px;
 			font-weight: 700;
 			line-height: 40px;
 		}
-		& h3 {
+		h3 {
 			font-size: 18px;
 			font-weight: 400;
 			line-height: 30px;
 			margin-bottom: 32px;
 		}
-		& input {
+		input {
 			display: flex;
 			font-size: 14px;
 			font-weight: 400;
@@ -583,7 +481,7 @@ a {
 				border: transparent; /* Полностью убирает видимость границы */
 			}
 		}
-		& button {
+		button {
 			background: #f16d7f;
 			border-radius: 0 50px 50px 0; /* Закругление только правых углов формы */
 			color: #ffffff;

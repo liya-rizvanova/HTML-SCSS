@@ -396,7 +396,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: #f16d7f solid;
+  border: 1px #f16d7f solid;
   background-color: transparent;
   cursor: pointer;
   width: 212px;
@@ -408,6 +408,14 @@ a {
   font-style: normal;
   background-color: transparent;
   color: #f16d7f;
+  fill: #f16d7f;
+}
+.description__button:hover {
+  color: #fff;
+  background-color: #f16d7f;
+}
+.description__button:hover path {
+  fill: #fff;
 }
 
 .product {

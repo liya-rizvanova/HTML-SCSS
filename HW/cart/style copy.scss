@@ -1,0 +1,648 @@
+// @use "sass:math";
+
+// @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:wght@800&display=swap');
+
+// @import "vars";
+// @import "mixins";
+
+// * {
+// 	margin: 0;
+// 	padding: 0;
+// }
+
+// summary {
+// 	display: block;
+// }
+
+// summary::-webkit-details-marker {
+// 	display: none;
+// }
+
+// %flex {
+// 	display: flex;
+// 	flex-wrap: wrap;
+// }
+
+// body {
+// 	background-color: #ffffff;
+// 	font-family: Lato, sans-serif;
+// }
+
+// a {
+// 	text-decoration: none;
+// }
+
+// .center {
+// 	// padding-left: calc(50% - #{$widthSite / 2});
+// 	padding-left: calc(50% - $widthSite / 2);
+// 	padding-right: calc(50% - $widthSite / 2);
+// }
+
+// .filter-sort {
+// 	height: 132px;
+// 	padding-top: 39px;
+// 	box-sizing: border-box;
+// 	display: flex;
+// 	gap: $gapGrid;
+// 	position: relative;
+// }
+
+// .filter {
+// 	padding-top: 13px;
+// 	width: $thirdSite;
+// 	position: relative;
+// 	z-index: 1;
+
+// 	&__content {
+// 		padding: 39px 16px 16px 16px;
+// 		display: none;
+// 		position: absolute;
+// 		top: 0;
+// 		left: 0;
+// 		width: 100%;
+// 		background: #ffffff;
+// 		box-shadow: none;
+// 		flex-direction: column;
+// 		box-sizing: border-box;
+// 	}
+// 	&[open] &__content {
+// 		display: flex;
+// 		box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+// 	}
+// 	&[open] &__heading {
+// 		color: $colorSelectSite;
+// 	}
+// 	&[open] path {
+// 		fill: $colorSelectSite;
+// 	}
+// 	&__summary {
+// 		display: flex;
+// 		align-items: center;
+// 		gap: 11px;
+// 		padding-left: 16px;
+// 		cursor: pointer;
+// 		position: relative;
+// 		z-index: 2;
+// 	}
+// 	&__heading {
+// 		font-style: normal;
+// 		font-size: 14px;
+// 		font-weight: 600;
+// 		line-height: 16.8px;
+// 		color: $colorText;
+// 	}
+// 	&__item {
+// 		margin-top: 16px;
+// 	}
+// 	&[open] .filter__head {
+// 		color: $colorSelectSite;
+// 	}
+// 	&__link-box {
+// 		display: flex;
+// 		flex-direction: column;
+// 		gap: 11px;
+// 		padding: 12px 16px;
+// 	}
+// 	&__link {
+// 		font-style: normal;
+// 		font-size: 14px;
+// 		font-weight: 400;
+// 		line-height: 16.8px;
+// 		color: #6f6e6e;
+// 		&:hover {
+// 			color: $colorSelectSite;
+// 		}
+// 	}
+// 	&__head {
+// 		font-style: normal;
+// 		font-size: 14px;
+// 		font-weight: 400;
+// 		line-height: 16.8px;
+// 		color: #6f6e6e;
+// 		padding: 8px 11px 11px 11px;
+// 		border-bottom: 1px solid #ebebeb;
+// 		border-left: 5px solid $colorSelectSite;
+// 	}
+// 	&__item[open] &__head {
+// 		color: $colorSelectSite;
+// 	}
+// }
+
+// .sort {
+// 	padding-top: 12px;
+// 	display: flex;
+// 	gap: 18px;
+// 	&__details {
+// 		position: relative;
+// 	}
+// 	&__summary {
+// 		display: flex;
+// 		align-items: center;
+// 		gap: 10px;
+// 	}
+// 	&__check {
+// 		display: flex;
+// 		align-items: center;
+// 		gap: 9px;
+// 		font-style: normal;
+// 		font-size: 14px;
+// 		font-weight: 400;
+// 		line-height: 16.41px;
+// 		color: #6f6e6e;
+// 	}
+// 	&__heading {
+// 		font-style: normal;
+// 		font-size: 14px;
+// 		font-weight: 400;
+// 		line-height: 16.8px;
+// 		color: #6f6e6e;
+// 	}
+// 	&__box {
+// 		display: flex;
+// 		flex-direction: column;
+// 		gap: 8px;
+// 		box-shadow: 6px 4px 35px 0px #00000036;
+// 		background-color: #ffffff;
+// 		padding: 7px 30px 11px 9px;
+// 		position: absolute;
+// 		left: -9px;
+// 		top: 22px;
+// 	}
+// }
+
+// .header {
+// 	background-color: $backBlock;
+// 	padding-top: 20px;
+// 	padding-bottom: 20px;
+// 	align-items: center;
+// 	justify-content: space-between;
+// 	@extend %flex;
+// 	position: relative;
+// 	&__left {
+// 		display: flex;
+// 		align-items: center;
+// 		gap: 41px;
+// 	}
+// 	&__right {
+// 		display: flex;
+// 		align-items: center;
+// 		gap: 33px;
+// 	}
+//   &__right_productCounter {
+//     position: relative; /* Это позволяет позиционировать псевдоэлемент внутри этого блока */
+//     display: inline-block;
+//     &::after {
+//       content: "5"; /* Число в кружке */
+//       position: absolute;
+//       top: -8px; /* Настройка положения по вертикали */
+//       right: -9px; /* Настройка положения по горизонтали */
+//       width: 19px; /* Ширина кружка */
+//       height: 19px; /* Высота кружка */
+//       background-color: #F16D7F; /* Цвет кружка */
+//       border-radius: 50%; /* Закругленные углы */
+//       color: white; /* Цвет текста */
+//       font-size: 12px; /* Размер текста */
+//       display: flex; /* Flexbox для выравнивания текста внутри кружка */
+//       align-items: center; /* Вертикальное выравнивание текста */
+//       justify-content: center; /* Горизонтальное выравнивание текста */
+//     }
+//   }
+// }
+
+// .box-content {
+// 	overflow: hidden;
+// }
+
+// #burger {
+// 	position: absolute;
+// 	left: -99999px;
+// 	visibility: hidden;
+// 	&:checked ~ .popupMenu {
+// 		right: -$widthBurgerMenu;
+// 	}
+// }
+
+// .popupMenu {
+//   position: absolute; /* Абсолютное позиционирование относительно .containerMain */
+//   top: 82px; /* Отступ от верхнего края контейнера */
+//   right: 0; /* Отступ от правого края контейнера */
+//   width: 232px; /* Ширина меню */
+// 	// 	box-sizing: border-box;
+//   background-color: white;
+//   border: none;
+// 	transition: right 0.3s;
+//   box-shadow: 6px 4px 35px 0px #00000036; /* Тень для объема */
+//   z-index: 5; /* Поверх остальных элементов */
+//   padding: 32px; /* Внутренние отступы для расположения содержимого */
+// 	box-sizing: border-box;
+// 	h2 {
+// 		font-size: 14px;
+// 		font-weight: 700;
+// 		line-height: 16.8px;
+// 		text-transform: uppercase;
+// 		margin-bottom: 24px;
+// 	}
+//   a {
+//     color: inherit;
+//   }
+// 	&__content {
+// 		display: flex;
+// 		flex-direction: column;
+// 	}
+// 	&__close {
+// 		position: absolute;
+// 		top: 10px;
+// 		right: 10px;
+// 		width: 15px;
+// 		cursor: pointer;
+// 		background: transparent;
+// 		border: none;
+// 	}
+// 	&__section {
+// 		& h3 {
+// 			font-size: 14px;
+// 			font-weight: 400;
+// 			line-height: 16.8px;
+// 			color: #F16D7F;
+// 			text-transform: uppercase;
+// 			margin-bottom: 12px;
+// 			list-style: none; /* Убирает маркеры у списка */
+// 		}
+// 	}
+// 	&__section-categories {
+// 		& li {
+// 			padding-left: 25px; /* Отступ от левого края блока */
+// 			font-size: 14px;
+// 			font-weight: 400;
+// 			line-height: 16.8px;
+// 			color: #6F6E6E;
+// 			gap: 11px;
+// 			margin-bottom: 11px;
+// 			list-style: none;
+// 		}
+// 	}
+// }
+
+// .top-head {
+// 	background-color: #f8f3f4;
+// 	padding-top: 60px;
+// 	padding-bottom: 60px;
+// 	display: flex;
+// 	align-items: center;
+// 	justify-content: space-between;
+// 	&__heading {
+// 		font-size: 24px;
+// 		font-weight: 400;
+// 		font-style: normal;
+// 		line-height: 29px;
+// 		color: $colorSelectSite;
+// 	}
+// }
+
+// .product__box {
+// 	margin-top: 63px;
+// 	margin-bottom: 128px;
+// 	display: flex;
+// 	justify-content: space-between;
+// 	&_right {
+// 		display: flex;
+// 		flex-direction: column;
+// 		gap: 40px;
+// 		width: 652px;
+// 	}
+// 	&_right-product {
+// 		display: flex;
+// 		flex-direction: row;
+// 		box-shadow: 17px 19px 24px 0px #00000021;
+// 	}
+// 	&_right-img {
+// 		max-width: 262px;
+// 		max-height: 306px;
+//   }
+// 	&_right-content {
+// 		position: relative;
+// 		background: #FFFFFF;
+// 		padding: 22px 97px 0 31px;
+// 		display: flex;
+// 		flex-direction: column;
+// 		gap: 16px;
+// 		max-width: 262px;
+// 	}
+// 	&_right-close {
+// 		position: absolute;
+// 		top: 28px;
+// 		right: 22px;
+// 		width: 18px;
+// 		cursor: pointer;
+// 		background: transparent;
+// 		border: none;
+// 	}
+// 	&_right-name {
+// 		font-size: 24px;
+// 		font-weight: 400;
+// 		font-style: normal;
+// 		line-height: 29px;
+// 		color: $backBlock;
+// 		margin-bottom: 42px;
+// 		text-wrap: balance;
+// 	}
+// 	&_right-parameters {
+// 		font-size: 22px;
+// 		font-weight: 400;
+// 		font-style: normal;
+// 		line-height: 27px;
+// 		color: #575757;
+// 		gap: 6px;
+// 	}
+// 	&_right-price {
+// 		.priceColor {
+// 			color: $colorSelectSite;
+// 		}
+// 	}
+// 	&_right-quantity {
+// 		display: flex; /* Позволяет располагать текст и окошко в одной строке */
+// 		align-items: center;
+// 		gap: 24px; /* Расстояние между текстом и окошком */
+// 		.box {
+// 			display: flex; /* Центрируем содержимое внутри окошка */
+// 			align-items: center;
+// 			justify-content: center;
+// 			width: 44px; /* Ширина окошка */
+// 			height: 25px; /* Высота окошка */
+// 			border: 1px solid #EAEAEA; /* Рамка */
+// 			background-color: #fff; /* Фон */
+// 			font-size: 18px; /* Размер текста */
+// 			line-height: 22px;
+// 			font-weight: 400; /* Толщина шрифта */
+// 			color: #656565; /* Цвет текста */
+// 		}
+// 	}
+// 	&_right-choose {
+// 		display: flex;
+// 		align-items: center;
+// 		justify-content: space-between;
+// 		&-btn {
+// 			font-style: normal;
+// 			font-size: 14px;
+// 			font-weight: 400;
+// 			line-height: 16.8px;
+// 			justify-content: center;
+// 			text-align: center;
+// 			padding: 16px;
+// 			color: $colorText;
+// 			border: 1px solid #A4A4A4;
+// 			background: #FFFFFF;
+// 		}
+// 	}
+// 	&_left {
+// 		display: flex;
+// 		flex-direction: column;
+// 		margin-left: 128px;
+// 		width: 360px;
+// 		h3 {
+// 			display: flex;
+// 			align-items: center;
+// 			font-style: normal;
+// 			font-size: 16px;
+// 			font-weight: 400;
+// 			line-height: 100%;
+// 			letter-spacing: 0%;
+// 			color: #222222;
+// 			margin-bottom: 20px;
+// 		}
+// 		&-form {
+// 			padding: 15px 17px;
+// 			color: #4A4A4A;
+// 			border: 1px solid #A4A4A4;
+// 			background: #FFFFFF;
+// 			margin-bottom: 20px;
+// 		}
+// 		&-getQuote--btn {
+// 			display: flex;
+// 			align-items: center;
+// 			width: 101px;
+// 			font-weight: 400;
+// 			font-size: 11px;
+// 			line-height: 100%;
+// 			text-wrap: nowrap;
+// 			padding: 11px 15px;
+// 			color: #4A4A4A;
+// 			border: 1px solid #A4A4A4;
+// 			background: #FFFFFF;
+// 			margin-top: 3px;
+// 		}
+// 		&-payment {
+// 			margin-top: 57px;
+// 			background: #F5F3F3;
+// 			height: 214px;
+// 			h3 {
+// 				color: #4A4A4A;
+// 				font-weight: 400;
+// 				font-size: 11px;
+// 				line-height: 100%;
+// 				margin-top: 39px;
+// 		    display: flex;
+// 				justify-content: right;
+// 				padding: 0 34px;
+// 				gap: 15px;
+// 				.priceAlign {
+// 					text-align: right;
+// 				}
+// 			}
+// 			h2 {
+// 				color: $backBlock;
+// 				font-weight: 400;
+// 				font-size: 16px;
+// 				line-height: 100%;
+// 				padding: 0 37px;
+// 				display: flex;
+// 				justify-content: right;
+// 				gap: 20px;
+// 				.priceColor {
+// 					color: $colorSelectSite;
+// 					font-weight: 700;
+// 				}
+// 			}
+// 			&--line {
+// 				width: 275px;
+// 				height: 1px;
+// 				background: #E2E2E2;
+// 				margin: 21px auto;
+// 			}
+// 			&--btn {
+// 				display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         width: 273px;
+//         font-weight: 400;
+//         font-size: 16px;
+//         line-height: 100%;
+//         text-wrap: nowrap;
+// 				padding: 15px 42px;
+//         color: #fff;
+//         border: none;
+//         background: $colorSelectSite;
+// 				margin: 17px auto;
+// 			}
+// 		}
+// 	}
+// }
+
+// /* Блок с преимуществами */
+// .containerFooter {
+// 	background: #222224;
+// 	max-width: 100%;
+// 	overflow: hidden;
+// 	&__form {
+// 		display: flex;
+// 		flex-direction: column;
+// 		justify-content: center;
+// 		align-items: center;
+// 		position: relative;
+// 		max-width: 1600px;
+// 		margin: 0 auto;
+// 		height: 100%;
+// 	}
+// 	&__overlayFooter {
+// 		position: relative;
+// 		width: 100%;
+// 		height: 100%;
+// 		display: flex;
+// 		justify-content: center;
+// 		align-items: center;
+// 	}
+// 	&__overlayFooter img {
+// 		width: 100%;
+// 		height: auto;
+// 		object-fit: cover;
+// 	}
+// 	&__overlayFooter::after {
+// 		content: "";
+// 		position: absolute;
+// 		top: 0;
+// 		left: 0;
+// 		width: 100%;
+// 		height: 100%;
+// 		background: rgba(244, 244, 244, 0.7); /* Полупрозрачное наложение */
+// 		z-index: 1; /* Находится под контентом */
+// 	}
+// 	&__overlayFooter-content {
+// 		position: absolute; /* Размещаем поверх родительского блока */
+// 		top: 45%;
+// 		left: 30%;
+// 		transform: translate(-25%, -50%); /* Центрирование методом подбора*/
+// 		display: flex; /* Выравнивание контента */
+// 		align-items: center;
+// 		gap: 328px;
+// 		z-index: 2; /* Поверх фона и наложения */
+// 	}
+// 	&__leftSide {
+// 		display: flex;
+// 		align-items: center;
+// 		flex-direction: column;
+// 		max-width: 360px;
+// 		gap: 30px;
+// 		& p {
+// 			font-size: 20px;
+// 			font-weight: 400;
+// 			line-height: 24px;
+// 			text-align: center;
+// 		}
+// 	}
+// 	&__leftSide-italic {
+// 		font-style: italic; /* Выделение части текста в левой части блока */
+// 	}
+// 	&__rightSide {
+// 		text-align: center;
+// 		text-transform: uppercase;
+// 		max-width: 557px;
+// 		& h2 {
+// 			font-size: 24px;
+// 			font-weight: 700;
+// 			line-height: 40px;
+// 		}
+// 		& h3 {
+// 			font-size: 18px;
+// 			font-weight: 400;
+// 			line-height: 30px;
+// 			margin-bottom: 32px;
+// 		}
+// 		& input {
+// 			display: flex;
+// 			font-size: 14px;
+// 			font-weight: 400;
+// 			line-height: 16.8px;
+// 			border-radius: 50px 0 0 50px; /* Закругление только левых углов формы */
+// 			max-width: 256px;
+// 			height: 49px;
+// 			border: none;
+// 			padding: 0 64px 0 22px; /* Внутренние отступы */
+// 			background-color: #E1E1E1;
+// 			&:focus {
+// 				outline: none;
+// 				border: transparent; /* Полностью убирает видимость границы */
+// 			}
+// 		}
+// 		& button {
+// 			background: #f16d7f;
+// 			border-radius: 0 50px 50px 0; /* Закругление только правых углов формы */
+// 			color: #ffffff;
+// 			cursor: pointer;
+// 			font-size: 14px;
+// 			font-weight: 400;
+// 			line-height: 16.8px;
+// 			max-width: 100px;
+// 			height: 49px;
+// 			border: none;
+// 			padding: 10px 20px;
+// 		}
+// 	}
+// 	&__rightSide-formSize {
+// 		display: flex;
+// 		align-items: center;
+// 		text-align: center;
+// 		gap: 0; /* Убирает промежуток между input и button */
+// 	}
+// 	&__bottom {
+// 		display: flex;
+// 		align-items: center; /* Выравнивание по вертикали */
+// 		justify-content: space-between; /* Распределение элементов по краям */
+// 		max-width: 1600px;
+// 		margin: 0 auto;
+// 		padding: 24px 230px;
+// 	}
+// 	&__bottom-text {
+// 		display: flex;
+// 		align-items: center; /* Убедитесь, что текст выровнен по центру */
+// 		& p {
+// 			font-size: 16px;
+// 			font-weight: 400;
+// 			line-height: 19.2px;
+// 			color: #fbfbfb;
+// 		}
+// 	}
+// 	&__bottom-icons {
+// 		display: flex;
+// 		align-items: center; /* Выравнивание иконок по центру */
+// 		gap: 7px; /* Расстояние между иконками */
+// 		cursor: pointer;
+// 	}
+// 	& .icon-wrapper {
+// 		display: flex; /* Для корректной работы flex-контейнеров */
+// 		align-items: center; /* Выравнивание иконки по вертикали */
+// 		& .bg {
+// 			fill: white; /* Цвет фона иконки*/
+// 			transition: fill 0.3s ease; /* Плавный переход цвета */
+// 		}
+// 		& .icon-path {
+// 			fill: black; /* Цвет иконки */
+// 			transition: fill 0.3s ease; /* Плавный переход цвета */
+// 		}
+// 		&:hover .bg {
+// 			fill: #f16d7f; /* Фон иконки становится розовым */
+// 		}
+// 		&:hover .icon-path {
+// 			fill: white; /* Иконка становится белой */
+// 		}
+// 	}
+// }
