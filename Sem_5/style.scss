@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+.center {
+  padding-left: calc(50% - 570px);
+  padding-right: calc(50% - 570px);
+}
+
+// .content {
+//   display: grid;
+//   grid-template-columns: repeat(4, 1fr);
+// }
+
+// .item {
+//   height: 33.333vh;
+//   border: 1px solid #000;
+// }
+
+// если добавляем gap меняем item
+.content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.item {
+  height: calc((100vh - 32px)/3);
+  border: 1px solid #000;
+}
+
+html {
+  // 1rem 16px
+  font-size: 16px;
+}
+
+h1 {
+  // 4rem 64px
+  font-size: 4rem;
+}
+
+h2 {
+  // 3rem 48px
+  font-size: 3rem;
+}
+
+p {
+  // 2rem 32px
+  font-size: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .content {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  // .item {
+  //   height: 25vh;
+  //   border: 1px solid #000;
+  // }
+
+  // при добавлении gap
+  .item {
+    height: calc((100vh - 48px)/4);
+    border: 1px solid #000;
+  }
+
+  html {
+    // 1rem 14px
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 767px) {
+  .content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .item {
+    height: calc((100vh - 32px)/3);
+  }
+
+  html {
+    // 1rem 12px
+    font-size: 12px;
+  }
+}
