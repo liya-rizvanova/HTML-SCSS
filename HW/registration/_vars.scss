@@ -1,8 +1,16 @@
 $colorSelectSite: #f16d7f;
 $widthSite: 1140px;
+$widthSitePad: 738px;
+$widthSitePhone: 359px;
 $backBlock: #222;
 $colorText: #000;
 $gapGrid: 30px;
+$gapGridPad: 16px;
+$gapGridPhone: 16px;
 $thirdSite: math.div($widthSite - $gapGrid * 2, 3);
+$thirdSitePad: math.div($widthSitePad - $gapGridPad * 2, 3);
+$thirdSitePhone: math.div($widthSitePhone - $gapGridPhone * 2, 3);
 $startSecondThird: $thirdSite + $gapGrid;
+$startSecondThirdPad: $thirdSitePad + $gapGridPad;
+$startSecondThirdPhone: $thirdSitePhone + $gapGridPhone;
 $widthBurgerMenu: 232px;
